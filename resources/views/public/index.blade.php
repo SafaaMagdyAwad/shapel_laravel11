@@ -1,0 +1,12 @@
+@extends('public.layouts.main')
+@section('content')
+@include('public.includes.slider')
+@push('hidden')
+@endpush
+@include('public.includes.about')
+@include('public.includes.gallery')
+@include('public.includes.servise')
+@include('public.includes.blog')
+@include('public.includes.client')
+@include('public.includes.contact')
+@endsection
