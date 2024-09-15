@@ -20,7 +20,7 @@ class TestimonialFactory extends Factory
             'name'=>fake()->name(),
             'message'=>fake()->text(),
             'image'=>fake()->randomElement(['client.jpg']),
-            'published'=>fake()->boolean(),
+            'isPublished'=>fake()->boolean(),
         ];
     }
 }

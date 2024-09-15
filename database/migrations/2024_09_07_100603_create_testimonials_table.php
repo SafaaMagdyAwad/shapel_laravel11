@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('message');
             $table->string('image');
-            $table->boolean('published');
+            $table->boolean('isPublished');
             $table->timestamps();
         });
     }

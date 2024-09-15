@@ -24,7 +24,7 @@
                         </h6>
                       </div>
                       <p>
-                        {{ $testimonial->message }}
+                        {{ Str::limit($testimonial->message, 50, '...') }}
                       </p>
                       <i class="fa fa-quote-left" aria-hidden="true"></i>
                     </div>

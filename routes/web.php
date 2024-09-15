@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TestimonialController;
+// use App\Http\Controllers\Admin\ConversatioController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +23,19 @@ Route::get('serviceDetails/{id}',[PublicController::class,'serviceDetails'])->na
 Route::get('contact',[PublicController::class,'contact'])->name('contact');
 Route::post('contact',[PublicController::class,'contactpost'])->name('contactpost');
 Route::post('newsletter',[PublicController::class,'newsletter'])->name('newsletter');
+
+Route::prefix('admin')->group(function(){
+
+    // Route::resource('conversation',ConversatioController::class)->middleware('verified');
+    Route::resource('blog',BlogController::class);
+    Route::resource('gallery',GalleryController::class);
+    Route::resource('message',MessageController::class)->only(['index','destroy']);
+    Route::post('message/read/{message}',[MessageController::class,'read'])->name('message.read');
+    Route::resource('service',ServiceController::class);
+    Route::resource('testimonial',TestimonialController::class);
+    Route::resource('user',UserController::class);
+});
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

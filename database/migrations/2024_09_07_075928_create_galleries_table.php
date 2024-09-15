@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('image_title');
-            $table->boolean('published');
+            $table->boolean('isPublished');
             $table->timestamps();
         });
     }

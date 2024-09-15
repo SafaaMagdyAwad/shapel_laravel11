@@ -20,7 +20,7 @@ class GalleryFactory extends Factory
         return [
             'image'=>fake()->randomElement($images),
             'image_title'=>fake()->colorName(),
-            'published'=>fake()->boolean(),
+            'isPublished'=>fake()->boolean(),
         ];
     }
 }

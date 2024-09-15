@@ -12,6 +12,6 @@ class Testimonial extends Model
         'name',
         'message',
         'image',
-        'published',
+        'isPublished',
     ];
 }

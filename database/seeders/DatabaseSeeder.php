@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Blog;
 use App\Models\Gallery;
+use App\Models\Message;
 use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -19,8 +20,10 @@ class DatabaseSeeder extends Seeder
     {
         Blog::factory(10)->create();
         Gallery::factory(10)->create();
-        // Service::factory(6)->create();
+        Service::factory(6)->create();
         Testimonial::factory(10)->create();
+        user::factory(10)->create();
+        Message::factory(10)->create();
 
 
     }

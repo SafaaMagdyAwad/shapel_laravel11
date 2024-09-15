@@ -22,7 +22,7 @@ class ServiceFactory extends Factory
             'title'=>fake()->unique()->randomElement($services),
             'description'=>fake()->text(1000),
             'image'=>fake()->randomElement($images),
-            'published'=>fake()->boolean(),
+            'isPublished'=>fake()->boolean(),
         ];
     }
 }

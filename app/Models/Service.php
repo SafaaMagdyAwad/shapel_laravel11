@@ -12,6 +12,6 @@ class Service extends Model
         'title',
         'description',
         'image',
-        'published',
+        'isPublished',
     ];
 }

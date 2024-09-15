@@ -22,7 +22,8 @@ class BlogFactory extends Factory
             'title'=>fake()->randomElement($titleList),
             'description'=>fake()->text(2000),
             'image'=>fake()->randomElement($images),
-            'published'=>fake()->boolean(),
+            'isPublished'=>fake()->boolean(),
+            'like'=>fake()->numberBetween(1,100),
         ];
     }
 }

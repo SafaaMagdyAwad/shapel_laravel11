@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('description');
             $table->string('image');
-            $table->boolean('published');
+            $table->boolean('isPublished');
             $table->timestamps();
         });
     }

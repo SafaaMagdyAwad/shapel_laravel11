@@ -11,6 +11,6 @@ class Gallery extends Model
     protected $fillable = [
         'image',
         'image_title',
-        'published',
+        'isPublished',
     ];
 }

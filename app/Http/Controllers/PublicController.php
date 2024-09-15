@@ -15,10 +15,10 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function index(){
-        $blogs=Blog::where('published',1)->latest()->take(2)->get();
-        $galleryItems=Gallery::where('published',1)->latest()->take(6)->get();
-        $services=Service::where('published',1)->latest()->take(3)->get();
-        $testimonials=Testimonial::where('published',1)->latest()->get();
+        $blogs=Blog::where('isPublished',1)->latest()->take(2)->get();
+        $galleryItems=Gallery::where('isPublished',1)->latest()->take(6)->get();
+        $services=Service::where('isPublished',1)->latest()->take(3)->get();
+        $testimonials=Testimonial::where('isPublished',1)->latest()->get();
 
         return view('public.index',compact('blogs','galleryItems','services','testimonials'));
     }
@@ -26,23 +26,23 @@ class PublicController extends Controller
         return view('public.about');
     }
     public function blog(){
-        $blogs=Blog::where('published',1)->latest()->take(2)->get();
+        $blogs=Blog::where('isPublished',1)->latest()->take(2)->get();
         return view('public.blog',compact('blogs'));
     }
     public function blogDetails(string $id){
-        $blog=Blog::where('published',1)->findOrFail($id);
+        $blog=Blog::where('isPublished',1)->findOrFail($id);
         return view('public.blogDetails',compact('blog'));
     }
     public function serviceDetails(string $id){
-        $service=Service::where('published',1)->findOrFail($id);
+        $service=Service::where('isPublished',1)->findOrFail($id);
         return view('public.serviceDetails',compact('service'));
     }
     public function gallery(){
-        $galleryItems=Gallery::where('published',1)->get();
+        $galleryItems=Gallery::where('isPublished',1)->get();
         return view('public.gallery',compact('galleryItems'));
     }
     public function service(){
-        $services=Service::where('published',1)->latest()->get();
+        $services=Service::where('isPublished',1)->latest()->get();
         return view('public.service',compact('services'));
     }
     public function contact(){
@@ -55,6 +55,7 @@ class PublicController extends Controller
             'email'=>'required|email',
             'message'=>'required|string',
         ]);
+        $data['read']=0;
         ContactMailJob::dispatch($data);
         Message::create($data);
         ConfirmMailJob::dispatch($data);
@@ -70,5 +71,5 @@ class PublicController extends Controller
         ConfirmMailJob::dispatch($data);
         return redirect()->route('index');
     }
-    
+
 }
