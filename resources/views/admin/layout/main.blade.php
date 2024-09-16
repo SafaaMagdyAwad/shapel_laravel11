@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    @include('admin.includes.header')
   <main>
 
     @yield('content')

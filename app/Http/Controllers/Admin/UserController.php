@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends BaseController
 {
-
     protected string $filesPath = "assets/images/user";
     // name of file in the frontend
     protected string $model = User::class;
@@ -56,4 +55,5 @@ class UserController extends BaseController
         $request['password']=isset($request->password)?Hash::make($request->password):$request->old_password;
         return parent::update($request, $id);
     }
+
 }
